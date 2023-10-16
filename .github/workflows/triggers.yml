@@ -1,0 +1,24 @@
+name: Multiple Triggers CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - dev
+  issues:
+    types: [opened, edited, closed]
+  workflow_run:
+    workflows: ["PR Workflow", "Push Workflow"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
