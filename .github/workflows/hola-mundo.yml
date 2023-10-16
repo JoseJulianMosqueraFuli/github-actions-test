@@ -1,7 +1,8 @@
 name: hola-mundo
-on: [push]
+#Optional run-name: !HOLA SOY UNA PRUEBA!
+on: [push] # Triggers:https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#about-events-that-trigger-workflows
 jobs:
-  hola-mundo:
+  hola-mundo: #Can't contain spaces
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
